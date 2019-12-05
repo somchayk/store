@@ -1,0 +1,19 @@
+<%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+<h1>Cart</h1>
+<hr />
+<h3>Welcome <%= current_user.name %></h3>
+<h3>Wallet Amount: $<%= current_user.wallet %></h3>
+<hr/>
+<%= link_to 'Add a New Cart', new_cart_path %>
+<p>
+  <%= current_user.shoes ? 'Nice Shoes!' : '' %>
+</p>
+
+<p>
+  <%= current_user.shirt ? '' : 'PUT ON A SHIRT' %>
+</p>
+
+<p>Cart</p>
+<% @carts.each do |c| %>
+  <%= c.total %>
+<% end %>
